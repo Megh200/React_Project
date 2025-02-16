@@ -12,7 +12,7 @@ const Locationitem = (props) =>{
                 <div className="info">
                 <h2>{props.title}</h2>
                 <h5>{props.desc}</h5>
-                <h5>{props.address}</h5>
+                <p>{props.address}</p>
                 </div>
                 
             </div>
