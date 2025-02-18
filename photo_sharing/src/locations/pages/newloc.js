@@ -13,7 +13,7 @@ return (
         </div>
         <div className="form-control" >
             <label>Description</label>
-            <input type="text" name="newlocdesc" required />
+            <textarea></textarea>
         </div>
         <div className="form-control" >
             <label>Address</label>
