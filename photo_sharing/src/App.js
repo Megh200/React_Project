@@ -26,6 +26,47 @@ const App = () => {
   // to LoginContext.Provider's "value" as obj bcz in context.js
   // they are in object
 
+
+  let validroutes;
+  
+
+  if(isLoggedin){
+    validroutes = (
+      <Switch>
+        <Route path = "/" exact>        
+            <Users/>
+        </Route>
+        
+        <Route path="/:userid/locations" >
+          <Userlocation />
+        </Route>
+
+        <Route path = "/loc/new" exact>
+        <Newloc/>
+        </Route>
+
+        <Redirect to="/" />     {/* After login, we should redirect
+        to Users page */}
+      </Switch>
+    );
+  }
+  else{
+    validroutes = (
+      <Switch>
+        <Route path = "/" exact>        
+            <Users/>
+        </Route>
+
+        <Route path="/Login" exact >
+          <LogIn/>
+        </Route>
+
+        <Redirect to="/Login" />  {/* After logout, we should redirect
+        to path /login i.e. Login page */}
+      </Switch>
+    );
+  }   // now using this validroutes in <main></main>
+
     return(
       
     <LoginContext.Provider value={ {isloggedin:isLoggedin, login:Login, logout:Logout } } >
@@ -36,32 +77,39 @@ const App = () => {
         <Mainnav/>
 
         <main>
-        <Switch>
+        
+        {/* <Switch> */}
 
         {/* created a default home page eg: picpot/ , that will give users liston frontend webpage */}
-        <Route path = "/" exact>        
+        {/* <Route path = "/" exact>        
             <Users/>
-        </Route>
+        </Route> */}
 
-        <Route path="/:userid/locations" >
+        {/* for My Locations */}
+        {/* <Route path="/:userid/locations" >   
           <Userlocation />
-        </Route>
+        </Route> */}
 
-        <Route path="/Login" exact >
+        {/* <Route path="/Login" exact >
           <LogIn/>
-        </Route>
+        </Route> */}
 
-        <Route path = "/loc/new" exact>
+        {/* for Add Locations */}
+        {/* <Route path = "/loc/new" exact>
         <Newloc/>
-        </Route>
+        </Route> */}
       {/* EXACT is used bcz when we run /loc/new, it shows users content also with that & we don't want it */}
 
-      <Redirect to="/" />
-      {/* if we gave any useless path,it will redirect to userspage(default/home page) */}
+      {/* <Redirect to="/" /> */}
+      {/* if we gave any useless path,it will redirect to Userspage(default/home page)
+      & the path must be same as Users to go on Users page */}
+      
+      {/* </Switch> */}
 
-      </Switch>
+      {validroutes}
+
       </main>
-      <div></div>
+      
 
       </Router>
 
