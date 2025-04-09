@@ -5,7 +5,7 @@ const app = express();
 
 // since error "cannot GET /" ,so gave http req & res
 app.get("/", (req,res) =>(
-    res.send("server now found by routing / "))
+    res.send("<h1>server now found by routing / </h1>"))
 );
 
 // now if we want to create one more path
