@@ -12,7 +12,7 @@ return(
 Illo magnam necessitatibus cupiditate <span>{props.ar[1].name}</span> laboriosam explicabo exercitationem minima non sapiente natus quod, asperiores pariatur optio aut hic est sit modi totam iste ea? Animi nihil veniam provident cupiditate. Expedita, laborum.</p>
 
 {props.ar.map((item)=>
-    {return <p class="bebo">{item.name}-{item.class}</p>})}
+    {return <p className="bebo">{item.name}-{item.class}</p>})}
 
 </div>
 

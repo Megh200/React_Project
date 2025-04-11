@@ -1,13 +1,23 @@
-import React from "react";
+import React, {useState} from "react";
 import Forum from "./forum.js" ;
+import Ad from "./ad.js";
 
 const App = () => {
 
-    const array = [
-        {name:"ama", class:2},
-        {name:"hina", class:5},
-        {name:"sik", class:3},
-    ];
+    
+
+    const [array, damfun] = useState(
+          [  {name:"ama", class:2},
+            {name:"hina", class:5},
+            {name:"sik", class:3},    ]
+    );
+
+    const prin = function(newo){
+        damfun( (ia) =>{
+            return ia.concat(newo);
+        } )
+        
+    };
 
  return (
     <div>
@@ -21,6 +31,7 @@ const App = () => {
 
         <Forum ar={array} />
 
+        <Ad attr={prin} />
         
     </div>
  );
