@@ -1,6 +1,13 @@
 import React from "react";
+import Forum from "./forum.js" ;
 
 const App = () => {
+
+    const array = [
+        {name:"ama", class:2},
+        {name:"hina", class:5},
+        {name:"sik", class:3},
+    ];
 
  return (
     <div>
@@ -11,6 +18,9 @@ const App = () => {
         <option>bicycle</option>
         <option>bike</option>
         </select>
+
+        <Forum ar={array} />
+
         
     </div>
  );
