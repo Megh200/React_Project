@@ -1,11 +1,19 @@
-import React from "react";
+import React from "react"; 
+import Users from "./users/pages/Users.js";
 
+import "./index.css";
 
 const App = () => {
 
 
     return(
-        <h1>picpot</h1>
+
+        <div>
+
+      <h1>picpot</h1>
+      <Users/>
+
+        </div>
     );
 
 }
