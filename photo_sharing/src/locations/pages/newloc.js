@@ -3,7 +3,7 @@ import React from "react";
 const NL = () =>{
 
 return (
-    <h1>locations </h1>
+    <h1>locations  of users are here </h1>
 );
 
 };
