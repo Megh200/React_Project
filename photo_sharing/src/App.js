@@ -4,6 +4,7 @@ import Newloc from "./locations/pages/Newloc.js";
 
 import {BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
+import Mainnav from "./common/components/Navigation/Mainnav.js";
 
 const App = () => {
 
@@ -15,6 +16,7 @@ const App = () => {
 
       <Router>
 
+        <Mainnav/>
         <Switch>
 
         {/* created a default home page eg: picpot/ , that will give users liston frontend webpage */}
@@ -31,11 +33,6 @@ const App = () => {
       {/* if we gave any useless path,it will redirect to userspage(default/home page) */}
 
       </Switch>
-
-
-
-
-
 
       </Router>
 
