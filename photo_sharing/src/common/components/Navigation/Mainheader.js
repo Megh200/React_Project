@@ -2,9 +2,9 @@ import React from "react";
 
 import "./Mainheader.css";
 
-const Mainheader = () =>{
+const Mainheader = (props) =>{
     return (<header>
-
+        {props.children}
     </header>);
 };
 
