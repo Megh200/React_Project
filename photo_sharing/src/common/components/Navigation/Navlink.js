@@ -2,7 +2,7 @@ import React from "react";
 
 import "./Navlink.css";
 
-const Navlink = () =>{
+const Navlink = (props) =>{
     return (<header>
 
     </header>);
