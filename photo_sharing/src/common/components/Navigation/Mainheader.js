@@ -3,7 +3,7 @@ import React from "react";
 import "./Mainheader.css";
 
 const Mainheader = (props) =>{
-    return (<header>
+    return (<header className="mainheader" >
         {props.children}
     </header>);
 };
