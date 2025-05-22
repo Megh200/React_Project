@@ -1,12 +1,12 @@
 .mainnav-title {
-  color: black;
+  color: pink;
 }
 
 
 .mainnav-title a {
   text-decoration: none;
   transition: color .2s ease-out;
-  color: grey;
+  /* color: grey; */
 }
 .mainnav-title a:hover {
   color: blue;
