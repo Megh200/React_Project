@@ -10,7 +10,7 @@ const Users = () =>{
 
 return (
     <div>
-        <p>users page</p>
+        {/* <p>users page</p> */}
 
         <Userslist arr={all_users} />
 
