@@ -19,23 +19,26 @@ const Navlink = (props) =>{
 
             {/* we want "my loca.." & "add loc.." to be shown when loggedin;
             ofcourse "Users" will be shown everytime */}
-
-            { islogin.isLoggedin && 
+            {/* now we'll take context's var. from context.js by LoginComtext */}
+            
+            { islogin.isloggedin && 
             (<li>
                 <NavLink to="/1/locations" >My locations</NavLink>
             </li>) }
             
-            { islogin.isLoggedin && 
+            { islogin.isloggedin && 
             (<li>
                 <NavLink to="/loc/new" >Add locations</NavLink>
             </li>) }
 
-            { !islogin.isLoggedin &&
+            { !islogin.isloggedin &&
             (<li>
                 <NavLink to="/Login" >SignIn/Up</NavLink>
             </li>)}
 
-            { islogin.isLoggedin && ( <button>Logout</button> ) }
+            {/* button pr click se logout hojaye */}
+            { islogin.isloggedin && 
+            ( <button onClick={islogin.logout} >Logout</button> ) }
             
         </ul>
     );
