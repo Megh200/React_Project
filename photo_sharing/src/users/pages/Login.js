@@ -1,8 +1,13 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import "./Login.css";
+import {LoginContext} from "../../common/components/context";
 
 const LogIn = () =>{
     
+    // so submit krne pr login ho jaye
+   // again, to use LoginContext, useContext
+    const islogin = useContext(LoginContext);
+
     const[logindata,setlog] = useState(
         {
             email:"",
@@ -12,7 +17,13 @@ const LogIn = () =>{
 
     const submithandler = (event) =>{
         event.preventDefault();
+        
         console.log("logindata", logindata);
+
+    // calling login() from context.js
+        islogin.login();
+        
+
     };
 
     const changehandler = (event) =>{
