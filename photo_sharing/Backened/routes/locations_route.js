@@ -11,7 +11,8 @@ loc_router.get("/:locid", loc_controller.getlocbylocid);
 
 loc_router.get("/users/:uid", loc_controller.getlocbyuid);
 
-
 loc_router.post("/", loc_controller.createnewloc);
+
+loc_router.delete("/:locid", loc_controller.deleteloc);
 
 module.exports = loc_router;
