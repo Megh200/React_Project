@@ -1,6 +1,6 @@
 const MyError = require("../model/error");
 
-const user_locations = [
+let user_locations = [
         {id:"loc1",
         title:"albert hall museum",
         desc:"The Albert Hall Museum in Jaipur is the oldest museum of the state and functions as the state museum of Rajasthan.",
@@ -30,8 +30,7 @@ const user_locations = [
 exports.getlocbylocid = (req, res, next) =>{
      // url locid by params of useParams
     const locid = req.params.locid;
-    const location = user_locations.find(loc =>{
-        return (loc.id===locid) });
+    const location = user_locations.filter(loc => (loc.id===locid) );
     // console.log(location);
 
     if(!location){
@@ -43,10 +42,8 @@ exports.getlocbylocid = (req, res, next) =>{
 };
 
 exports.getlocbyuid = (req, res, next) =>{
-     const uid = req.params.uid;
-    const users = user_locations.filter(user =>{
-        return (user.userid===uid)
-    });
+    const uid = req.params.uid;
+    const users = user_locations.filter(user => user.userid===uid);
     res.status(200).json({result:"success", msg:users });
 };
 
@@ -57,3 +54,10 @@ exports.createnewloc = (req, res, next) =>{
     user_locations.push(newloc);
     res.status(201).json({result:"success", msg:newloc});
 };
+
+exports.deleteloc = (req, res, next) =>{
+    const locid = req.params.locid;
+    user_locations = user_locations.filter(loc => loc.id!==locid );
+
+    res.status(200).json({result:"success", msg:"loc is deleted"});
+}
