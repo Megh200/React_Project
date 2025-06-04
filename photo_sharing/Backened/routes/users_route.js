@@ -3,3 +3,6 @@ const user_controller = require("../controllers/user_controller");
 
 const user_router = express.Router();
 
+user_router.get("/:uid", user_controller.getuserbyuid);
+
+module.exports = user_router;
