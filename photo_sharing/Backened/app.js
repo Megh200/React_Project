@@ -10,7 +10,7 @@ app.use(express.json());
 
 // app.use(loc_route);     in the beginning,we did this
 app.use("/api/loc", loc_route);         // but now gave the path for locations      a route middleware
-app.use("/api/user", user_route);
+app.use("/api/users", user_route);
 
 
 app.use((error, req, res, next) =>{                  // error middleware
