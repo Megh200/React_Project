@@ -3,7 +3,7 @@ const express = require('express');
 
 const app = express();
 
-app.use(urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true}));        // to use form data
 
 // a http method since error "cannot GET /" ,so gave http req & res
 app.get("/", (req,res) =>{
@@ -14,8 +14,10 @@ app.get("/", (req,res) =>{
 
 // since we use POST method in form in calc.html
 app.post("/", (req,res) =>{
-    const n1 = req.body.n1;
-    const n2 = req.body.n2;
+    const n1 = Number(req.body.n1);
+    const n2 = Number(req.body.n2);
+    console.log(n1);
+    res.status(200).send(n1 + n2);
 });
 
 // now if we want to create one more path
