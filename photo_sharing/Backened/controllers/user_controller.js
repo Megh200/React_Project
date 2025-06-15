@@ -1,13 +1,18 @@
 const Myerror = require("../model/error");
 const userschemaf = require("../model/user");
 
-const all_users = [
-            {id:"1", name:"tiya", pic:"https://i.pinimg.com/736x/6a/8a/75/6a8a75997108f805112355c48ca4af27.jpg", nol:3, email:"tiya.com", password:"123t"},
-            {id:"2", name:"arya", pic:"https://i.pinimg.com/736x/6a/8a/75/6a8a75997108f805112355c48ca4af27.jpg", nol:1, email:"arya.com", password:"123a"}
-        ]
+// dummy
+// const all_users = [
+//             {id:"1", name:"tiya", pic:"https://i.pinimg.com/736x/6a/8a/75/6a8a75997108f805112355c48ca4af27.jpg", nol:3, email:"tiya.com", password:"123t"},
+//             {id:"2", name:"arya", pic:"https://i.pinimg.com/736x/6a/8a/75/6a8a75997108f805112355c48ca4af27.jpg", nol:1, email:"arya.com", password:"123a"}
+//         ]
 
 
 exports.getusers = (req, res, next) =>{
+    const all_users = userschemaf.find()
+    try{
+        // const 
+    }
     res.status(200).json({result:"success", msg:all_users});
 }
 
