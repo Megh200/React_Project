@@ -11,7 +11,7 @@ const App = () => {
     return(
       
     <div>
-      {/* route,redirect,switch etc.. are all router's components */}
+      {/* route,redirect,switch etc.. are all router's components  */}
 
       <Router>
 
