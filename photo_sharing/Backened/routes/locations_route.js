@@ -36,9 +36,10 @@ loc_router.get("/:locid", (req, res, next) =>{
 
 loc_router.get("/users/:uid", (req, res, next) =>{
     const uid = req.params.uid;
-    const users = user_locations.find(uid =>{
-        return (uid.userid===uid)
+    const location = user_locations.find(loc =>{
+        return (loc.userid===uid)
     });
+    res.status(200).json({result:"success", msg:location});
 });
 
 
