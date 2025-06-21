@@ -17,4 +17,6 @@ const all_users = [
 // }
 
 
-exports.getusers
+exports.getusers = (req, res, next) =>{
+    res.status(200).json({result:"success", msg:all_users});
+}
