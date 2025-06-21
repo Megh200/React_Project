@@ -29,14 +29,17 @@ loc_router.get("/:locid", (req, res, next) =>{
     const locid = req.params.locid;
     const location = user_locations.find(loc =>{
         return (loc.id===locid) });
-    console.log(location);
+    // console.log(location);
     
     res.status(200).json({result:"success", msg:location });
 });
 
 loc_router.get("/users/:uid", (req, res, next) =>{
-    const uid = 
-})
+    const uid = req.params.uid;
+    const users = user_locations.find(uid =>{
+        return (uid.userid===uid)
+    });
+});
 
 
 module.exports = loc_router;
