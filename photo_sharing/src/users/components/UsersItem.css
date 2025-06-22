@@ -9,8 +9,8 @@
   .useritem a {
     display: flex;
     align-items: center;
-    width: 100%;
-    height: 40%;
+    /* width: 100%; */
+    /* height: 40%; */
     text-decoration: none;
     padding:1rem;
     border-radius:10px;
@@ -33,12 +33,12 @@
     
   }
   
-  .useritem-pic {
+  /* .useritem-pic {
     width: 4rem;
     height: 4rem;
     margin-right: 1rem;
   }
-  
+   */
   .useritem-info h2 {
     font-size: 1.5rem;
     margin: 0 0 0.5rem 0;
