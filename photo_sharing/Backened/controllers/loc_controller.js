@@ -75,7 +75,7 @@ exports.createnewloc = async(req, res, next) =>{
     const newloc = new locschemaf({
         title,
         desc,
-        pic: "https://picsum.phtos/200",
+        pic: "https://picsum.photos/200",
         address,
         userid
     });
