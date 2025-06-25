@@ -8,11 +8,13 @@ const userschemaf = require("../model/user");
 //         ]
 
 
-exports.getusers = (req, res, next) =>{
-    const all_users = userschemaf.find()
+exports.getusers = async(req, res, next) =>{ 
+    let all_users;
     try{
-        // const 
-    }
+        all_users = await userschemaf.find({}, "-password");
+    }catch(err){
+    return next(new Myerror("db error"))};
+
     res.status(200).json({result:"success", msg:all_users});
 }
 
@@ -40,9 +42,10 @@ exports.register = async(req, res, next) =>{
     const newuser = new userschemaf(
             {
                 name,
-                nol : 0,
                 email,
-                password
+                pic : "http://picsum.photos/200",
+                password,
+                locs_id : []
             }
         );
 
@@ -51,9 +54,9 @@ exports.register = async(req, res, next) =>{
     // all_users.push(newuser);
 
     try{
-        const dbemail = await userschemaf.find({email:email});  
+        const dbemail = await userschemaf.findOne({email:email});  
         
-        if(dbemail.length !== 0){
+        if(dbemail){
         return next(new Myerror("email already existed"));}
         
         await newuser.save();
@@ -65,20 +68,36 @@ exports.register = async(req, res, next) =>{
 }
 
 
-exports.login = (req, res, next) =>{
+exports.login = async(req, res, next) =>{
     const {email, password} = req.body;
 
-    const user = all_users.find(i => i.email===email && i.password===password);
-    // console.log(user);
+    // const user = all_users.find(i => i.email===email && i.password===password);
 
-    if(user && user.password!==password){
-        return next(new Myerror("invalid password", 401));
+    // if(user && user.password!==password){
+    //     return next(new Myerror("invalid password", 401));
+    // }
+    // if(!user){
+    //     return next(new Myerror("invalid user, register first", 401));
+    // }
+
+    let logdetail;
+    try{
+       logdetail = await userschemaf.findOne({email:email});
+
+    }catch(err){
+        return next(new Myerror("db error",404));
     }
-    if(!user){
-        return next(new Myerror("invalid user, register first", 401));
+
+     if(!logdetail){
+        return next(new Myerror("email not found, register first",404));
     }
+    else if(logdetail.password !== password){
+        return next(new Myerror("invalid password",200));
+    }
+    
     res.status(200).json({result:"success", msg:"logged in"});
 }
+
 
 
 
