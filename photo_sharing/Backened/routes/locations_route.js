@@ -7,11 +7,11 @@ const loc_router = express.Router();     // for path
 
 
 
-loc_router.get("/:locid", );
+loc_router.get("/:locid", loc_controller.getlocbylocid);
 
-loc_router.get("/users/:uid", );
+loc_router.get("/users/:uid", loc_controller.getlocbyuid);
 
 
-loc_router.post("/", )
+loc_router.post("/", loc_controller.createnewloc);
 
 module.exports = loc_router;
