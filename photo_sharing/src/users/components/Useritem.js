@@ -1,7 +1,7 @@
 import React from "react";
 import {Link} from "react-router-dom";
 
-import "./UsersItem.css";
+import "./Usersitem.css";
 
 const Useritem =(props) =>{
     
