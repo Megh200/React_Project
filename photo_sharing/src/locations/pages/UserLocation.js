@@ -33,7 +33,7 @@ const Userlocation = (props) =>{
 
     const userid = useParams().userid;
     const filtered_locations = user_locations.filter(i => i.userid === userid);
-    console.log(filtered_locations);
+    console.log(user_locations);
 
     return(
         <Locationlist arr={filtered_locations} />
