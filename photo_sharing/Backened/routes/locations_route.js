@@ -50,4 +50,12 @@ loc_router.get("/users/:uid", (req, res, next) =>{
 });
 
 
+loc_router.post("/", (req, res, next) =>{
+    const {title, desc, address, userid} = req.body;
+    const newloc = {title, desc, address, userid};
+
+    user_locations.push(newloc);
+    res.status(201).json({result:"success", msg:newloc});
+})
+
 module.exports = loc_router;
