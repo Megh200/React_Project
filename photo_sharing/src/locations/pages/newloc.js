@@ -13,10 +13,39 @@ const Newloc = () =>{
 
     const submithandler = (event) =>{
         event.preventDefault();
+        console.log("values",newlocation);
     };
 
-    const changehandler = () =>{
+    const changehandler = (event) =>{
+        const inputname = event.target.name;
+        const newentry = event.target.value;
 
+        // useState method with return state.
+        // consider previous value as iterator "i" here & like i.title, i.desc etc like this
+        setnewlocation((previousvalue)=>{
+            if(inputname === "newloctitle"){
+                return {
+                    title:newentry,
+                    desc:previousvalue.desc,
+                    address:previousvalue.address
+                };
+            }
+            else if(inputname === "newlocdesc"){
+                return {
+                    title:previousvalue.title,
+                    desc:newentry,
+                    address:previousvalue.address
+                };
+            }
+            if(inputname === "newlocaddress"){
+                return {
+                    title:previousvalue.title,
+                    desc:previousvalue.desc,
+                    address:newentry
+                };
+            }
+            }
+        )
     };
 
 return (
@@ -32,7 +61,7 @@ return (
         </div>
         <div className="form-control" >
             <label>Address</label>
-            <input type="text" name="newlocAddress" required onChange={changehandler} />
+            <input type="text" name="newlocaddress" required onChange={changehandler} />
         </div>
          <div className="form-control" >
             <button>Submit</button>
