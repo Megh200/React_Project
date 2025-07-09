@@ -1,5 +1,4 @@
-import React from "react";
-import {useState} from "react";
+import React, {useState} from "react";
 
 import "./Newloc.css";
 
@@ -21,7 +20,9 @@ const Newloc = () =>{
         const newentry = event.target.value;
 
         // useState method with return state.
-        // consider previous value as iterator "i" here & like i.title, i.desc etc like this
+        // consider previous value as iterator "i" here & like i.title, i.desc etc
+        // like this, but we can't write "i" bcz it's not an iterator,so we have to
+        // write "previousValue", below is also right but can yeah ....
         setnewlocation((previousvalue)=>{
             if(inputname === "newloctitle"){
                 return {
@@ -50,7 +51,7 @@ const Newloc = () =>{
 
 return (
     // <h1>locations of users are here </h1>
-    
+
     // adding eventlisteners
     <form className="location-form" onSubmit={submithandler} >
         <div className="form-control" >
