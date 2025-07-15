@@ -4,7 +4,7 @@ const Users = () =>{
 
 return (
     <div>
-        <p>users list are here</p>
+        <p>users page</p>
     </div>
 
 );
