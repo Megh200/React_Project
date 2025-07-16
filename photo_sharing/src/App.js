@@ -10,11 +10,11 @@ import { LoginContext } from "./common/components/context.js";
 
 const App = () => {
 
-  const 
+  const[login,setlogin] = useState(false);
 
     return(
       
-    <LoginContext.Provider value = {} >
+    <LoginContext.Provider  >
       {/* route,redirect,switch etc.. are all router's components  */}
 
       <Router>
@@ -47,6 +47,7 @@ const App = () => {
 
       </Switch>
       </main>
+      <div></div>
 
       </Router>
 
