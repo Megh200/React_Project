@@ -47,7 +47,7 @@ const App = () => {
           <Userlocation />
         </Route>
 
-        <Route path="/login" exact >
+        <Route path="/Login" exact >
           <Login/>
         </Route>
 
