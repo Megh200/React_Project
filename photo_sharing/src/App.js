@@ -1,4 +1,4 @@
-import React, {useState} from "react"; 
+import React, { useState, useCallback } from "react"; 
 import {BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
 import Users from "./users/pages/Users.js";
@@ -10,11 +10,25 @@ import { LoginContext } from "./common/components/context.js";
 
 const App = () => {
 
-  const[login,setlogin] = useState(false);
+  // passed false in useState hook to the var. isloggedin
+  const[isLoggedin,setisloggedin] = useState(false);
+
+  // Hook "useCallback()" takes 2 arguments, that's why we
+  // passed a method then an empty array
+  const Login = useCallback( () =>{
+    setisloggedin(true);
+  }, [] );
+
+  const Logout = useCallback( () =>{
+    setisloggedin(false);
+  }, [] );
+  // now passing these var. & methods
+  // to LoginContext.Provider's "value" as obj bcz in context.js
+  // they are in object
 
     return(
       
-    <LoginContext.Provider  >
+    <LoginContext.Provider value={ {isloggedin:isLoggedin, login:Login, logout:Logout } } >
       {/* route,redirect,switch etc.. are all router's components  */}
 
       <Router>
