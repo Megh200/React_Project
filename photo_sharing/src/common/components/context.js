@@ -5,7 +5,7 @@ export const LoginContext = createContext(
     // since "createContext" is a hook method so there is an object in it that is
     // a var. , two functions 
     {
-        isloggedin:false,
+        isloggedin:false,  // we are not login now so falset
         login: () =>{},
         logout: () =>{}
     }
