@@ -17,6 +17,8 @@ const App = () => {
       <Router>
 
         <Mainnav/>
+
+        <main>
         <Switch>
 
         {/* created a default home page eg: picpot/ , that will give users liston frontend webpage */}
@@ -33,6 +35,7 @@ const App = () => {
       {/* if we gave any useless path,it will redirect to userspage(default/home page) */}
 
       </Switch>
+      </main>
 
       </Router>
 
