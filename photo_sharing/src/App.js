@@ -1,13 +1,12 @@
 import React from "react"; 
-import Users from "./users/pages/Users.js";
-import Newloc from "./locations/pages/Newloc.js";
-
 import {BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
+import Users from "./users/pages/Users.js";
+import Newloc from "./locations/pages/Newloc.js";
 import Mainnav from "./common/components/Navigation/Mainnav.js";
+import Userlocation from "./locations/pages/UserLocation.js";
 
 const App = () => {
-
 
     return(
       
@@ -25,6 +24,7 @@ const App = () => {
         <Route path = "/" exact>        
             <Users/>
         </Route>
+
 
         <Route path = "/loc/new" exact>
         <Newloc/>
