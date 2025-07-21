@@ -25,6 +25,9 @@ const App = () => {
             <Users/>
         </Route>
 
+        <Route path="/:userid/locations" >
+          <Userlocation />
+        </Route>
 
         <Route path = "/loc/new" exact>
         <Newloc/>
