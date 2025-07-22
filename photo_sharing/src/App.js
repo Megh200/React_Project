@@ -1,4 +1,4 @@
-import React from "react"; 
+import React, {useState} from "react"; 
 import {BrowserRouter as Router, Route, Redirect, Switch } from "react-router-dom";
 
 import Users from "./users/pages/Users.js";
@@ -10,9 +10,11 @@ import { LoginContext } from "./common/components/context.js";
 
 const App = () => {
 
+  const 
+
     return(
       
-    <div>
+    <LoginContext.Provider value = {} >
       {/* route,redirect,switch etc.. are all router's components  */}
 
       <Router>
@@ -48,11 +50,10 @@ const App = () => {
 
       </Router>
 
-        
+       </LoginContext.Provider>
 
 
-      </div>
-    );
+      );
 
 }
 
