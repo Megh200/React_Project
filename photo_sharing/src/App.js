@@ -5,7 +5,7 @@ import Users from "./users/pages/Users.js";
 import Newloc from "./locations/pages/Newloc.js";
 import Mainnav from "./common/components/Navigation/Mainnav.js";
 import Userlocation from "./locations/pages/UserLocation.js";
-
+import Login from "./users/pages/Login.js";
 const App = () => {
 
     return(
@@ -27,6 +27,10 @@ const App = () => {
 
         <Route path="/:userid/locations" >
           <Userlocation />
+        </Route>
+
+        <Route path="/login" exact >
+          <Login/>
         </Route>
 
         <Route path = "/loc/new" exact>

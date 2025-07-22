@@ -50,6 +50,8 @@ const Newloc = () =>{
 
 return (
     // <h1>locations of users are here </h1>
+    
+    // adding eventlisteners
     <form className="location-form" onSubmit={submithandler} >
         <div className="form-control" >
             <label>Title</label>
