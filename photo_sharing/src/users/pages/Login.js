@@ -21,8 +21,8 @@ const LogIn = () =>{
         console.log("logindata", logindata);
 
     // calling login() from context.js
-        islogin.login();
-        
+        islogin.login();    // here we are calling a fun.,that's why ()
+                            // now see in Navlink.js 'button tag of logout'
 
     };
 
