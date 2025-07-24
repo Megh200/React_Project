@@ -39,7 +39,8 @@ const Navlink = (props) =>{
             {/* button pr click se logout hojaye */}
             { islogin.isloggedin && 
             ( <button onClick={islogin.logout} >Logout</button> ) }
-            
+            {/* here we are defining a function in eventlistener,
+            for eventlisteners, we don't use () */}
         </ul>
     );
 };
