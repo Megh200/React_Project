@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import "./Login.css";
 
-const Login = () =>{
+const LogIn = () =>{
     
     const[logindata,setlog] = useState(
         {
@@ -58,4 +58,4 @@ return(
 
 };
 
-export default Login;
+export default LogIn;
