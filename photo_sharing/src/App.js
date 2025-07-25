@@ -45,7 +45,7 @@ const App = () => {
         <Newloc/>
         </Route>
 
-        <Redirect to="/" />     {/* After login, we should redirect
+        <Redirect to="/" />     {/* if we are login, we should redirect
         to Users page */}
       </Switch>
     );
@@ -61,7 +61,7 @@ const App = () => {
           <LogIn/>
         </Route>
 
-        <Redirect to="/Login" />  {/* After logout, we should redirect
+        <Redirect to="/Login" />  {/* if we are logged out, we should redirect
         to path /login i.e. Login page */}
       </Switch>
     );
