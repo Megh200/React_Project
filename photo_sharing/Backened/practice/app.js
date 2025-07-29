@@ -3,7 +3,8 @@ const express = require('express');
 
 const app = express();
 
-app.use(express.urlencoded({extended:true}));        // to use form data
+app.use(express.urlencoded({extended:true}));        // middleware to use form data
+app.use(express.static(`${__dirname}`));
 
 // a http method since error "cannot GET /" ,so gave http req & res
 app.get("/", (req,res) =>{
