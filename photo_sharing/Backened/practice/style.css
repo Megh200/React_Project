@@ -1,0 +1,14 @@
+body{
+    /* background-color: skyblue; */
+    background-image: url("http://i.pinimg.com/736x/af/ff/11/afff110c6e82a5aca37d644a33988c3d.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form{
+    width:100%;
+    height:500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
