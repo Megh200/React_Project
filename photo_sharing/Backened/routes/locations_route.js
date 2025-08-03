@@ -1,4 +1,6 @@
 const express = require('express');
+const Myerror = require("../model/error");
+
 const loc_router = express.Router();     // for path
 
 const user_locations = [
@@ -33,6 +35,7 @@ loc_router.get("/:locid", (req, res, next) =>{
 
     if(!location){
         // error
+        return next(new Myerror("no locations of this id", 404));
     }
     
     res.status(200).json({result:"success", msg:location });
