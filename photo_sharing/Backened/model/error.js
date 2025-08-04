@@ -1,7 +1,7 @@
 class Myerror extends Error{
-    constructor(msg, errorCode){
+    constructor(msg, errorcode){
         super(msg);
-        this.errorCode = errorCode;
+        this.errorcode = errorcode;
     }
 };
 
