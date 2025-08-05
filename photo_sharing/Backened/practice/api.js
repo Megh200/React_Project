@@ -20,7 +20,7 @@ axios({
     url: finalurl
 }).then(
 (response) =>{
-    const ans = response.data.conversion_rate ;
+    const ans = response.data.conversion_rate * amount;
     res.send(amount + " is " + ans + " in " + curr2) },
 (error) =>{
     console.log(error) }
