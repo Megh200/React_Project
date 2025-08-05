@@ -9,8 +9,9 @@ app.use("/api/loc", loc_route);         // but now gave the path for locations
 
 app.use((error, req, res, next) =>{
     if(res.headerSent){
-        // error
+        return next(error);
     }
+    res.json({result:"fail", msg:error});
 })
 
 app.listen(5000,() =>{
