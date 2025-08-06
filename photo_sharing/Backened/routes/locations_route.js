@@ -30,6 +30,10 @@ loc_router.get("/:locid", (req, res, next) =>{
     const location = user_locations.find(loc =>{
         return (loc.id===locid) });
     // console.log(location);
+
+    if(!location){
+        // error
+    }
     
     res.status(200).json({result:"success", msg:location });
 });
