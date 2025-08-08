@@ -1,5 +1,28 @@
 
 
+const user_locations = [
+        {id:"loc1",
+        title:"albert hall museum",
+        desc:"The Albert Hall Museum in Jaipur is the oldest museum of the state and functions as the state museum of Rajasthan.",
+        address:"Ram Niwas Garden, Ashok Nagar, Jaipur, Rajasthan 302007",
+        userid:"1"
+        },
+
+        {id:"loc2",
+        title:"delhi",
+        desc:"..",
+        address:"...",
+        userid:"1"
+        },
+
+        {id:"loc3",
+        title:"red fort",
+        desc:"...",
+        address:"...",
+        userid:"2"
+        }
+    ];
+
 
 const getlocbylocid = (req, res, next) =>{
      // url locid by params of useParams
