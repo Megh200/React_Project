@@ -18,7 +18,7 @@ app.use((error, req, res, next) =>{
 })
 // JavaScript’s built-in Error class uses the .message property to store the error message
 // bcz Built-in Error class only gives you these properties-> .message, .name, .stack etc but
-// JavaScript’s built-in Error class does not include .errorcode, .errorCode, or any such property by default.
+// JavaScript’s built-in Error class does not include .errorcode, .code, or any such property by default.
 
 app.listen(5000,() =>{
     console.log("server is created");
