@@ -1,4 +1,4 @@
-
+const MyError = require("../model/error");
 
 const user_locations = [
         {id:"loc1",
@@ -23,8 +23,11 @@ const user_locations = [
         }
     ];
 
+// to separately or individually export them .....
 
-const getlocbylocid = (req, res, next) =>{
+// const getlocbylocid = (req, res, next) =>{.......            in beginning, it was like this
+
+exports.getlocbylocid = (req, res, next) =>{
      // url locid by params of useParams
     const locid = req.params.locid;
     const location = user_locations.find(loc =>{
@@ -39,7 +42,7 @@ const getlocbylocid = (req, res, next) =>{
     res.status(200).json({result:"success", msg:location });
 };
 
-const getlocbyuid = (req, res, next) =>{
+exports.getlocbyuid = (req, res, next) =>{
      const uid = req.params.uid;
     const users = user_locations.filter(user =>{
         return (user.userid===uid)
@@ -47,7 +50,7 @@ const getlocbyuid = (req, res, next) =>{
     res.status(200).json({result:"success", msg:users });
 };
 
-const createnewloc = (req, res, next) =>{
+exports.createnewloc = (req, res, next) =>{
     const {title, desc, address, userid} = req.body;
     const newloc = {title, desc, address, userid};
 
