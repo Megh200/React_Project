@@ -25,7 +25,7 @@ const user_locations = [
 
 // to separately or individually export them .....
 
-// const getlocbylocid = (req, res, next) =>{.......            in beginning, it was like this
+// const getlocbylocid = (req, res, next) =>{.......}            in beginning, it was like this
 
 exports.getlocbylocid = (req, res, next) =>{
      // url locid by params of useParams
