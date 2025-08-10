@@ -30,7 +30,7 @@ const App = () => {
   let validroutes;
   
 
-  if(isLoggedin){
+  if(isLoggedin){         // here if we did not use isloggedin cuz we did not use useContext(LoginContext) & assigned it
     validroutes = (
       <Switch>
         <Route path = "/" exact>        
