@@ -20,7 +20,7 @@ const Newloc = () =>{
         const newentry = event.target.value;
 
         // useState method with return state.
-        // consider previous value as iterator "i" here & like i.title, i.desc etc
+        // consider previousvalue as iterator "i" here & like i.title, i.desc etc
         // like this, but we can't write "i" bcz it's not an iterator,so we have to
         // write "previousValue", below is also right but can yeah ....
         setnewlocation((previousvalue)=>{
