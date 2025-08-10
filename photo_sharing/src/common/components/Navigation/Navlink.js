@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import "./Navlink.css";
 import { LoginContext } from "../context.js";
 
-const Navlink = (props) =>{
+const Navlink = () =>{
 
     // to use LoginContext, we'll use hook "useContext" here
     // bcz we have to share login info now here 
@@ -19,7 +19,7 @@ const Navlink = (props) =>{
 
             {/* we want "my loca.." & "add loc.." to be shown when loggedin;
             ofcourse "Users" will be shown everytime */}
-            {/* now we'll take context's var. from context.js by LoginComtext */}
+            {/* now we'll take context's var. from context.js by LoginContext */}
             
             { islogin.isloggedin && 
             (<li>
