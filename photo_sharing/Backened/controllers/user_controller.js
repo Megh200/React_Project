@@ -20,3 +20,12 @@ const all_users = [
 exports.getusers = (req, res, next) =>{
     res.status(200).json({result:"success", msg:all_users});
 }
+
+
+exports.register = (req, res, next) =>{
+    const {id, name, pic, nol} = req.body;
+    const user = {id, name, pic, nol};
+    all_users.push(user);
+
+    res.json({result:"success", msg:"register is done"});
+}
