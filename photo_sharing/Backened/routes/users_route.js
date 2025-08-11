@@ -4,9 +4,10 @@ const Myerror = require("../model/error");
 
 const user_router = express.Router();
 
-// user_router.get("/:uid", user_controller.getuserbyuid);
 
 user_router.get("/", user_controller.getusers);
+
+// user_router.get("/:uid", user_controller.getuserbyuid);
 
 user_router.get("/register", user_controller.register);
 
