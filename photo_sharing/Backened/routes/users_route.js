@@ -1,6 +1,6 @@
 const express = require("express");
 const user_controller = require("../controllers/user_controller");
-const Myerror = require("../model/error");
+// const Myerror = require("../model/error");
 
 const user_router = express.Router();
 
