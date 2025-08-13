@@ -35,7 +35,11 @@ exports.login = (req, res, next) =>{
     const {email, password} = req.body;
     const logindetail = {email, password};
 
-    const user = 
+    const user = all_users.find(i => (i.email===email) && (i.password===password));
+
+    if(!user){
+        return next(new Myerror("register first", 404));
+    }
 
     res.status(200).json({result:"success", msg:"logged in"});
 }
