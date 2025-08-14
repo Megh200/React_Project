@@ -32,5 +32,8 @@ exports.register = (req, res, next) =>{
 }
 
 exports.login = (req, res, next) =>{
-    const {email, password} = req.body
+    const {email, password} = req.body;
+    const logindetail = {email, password};
+
+    res.status(200).json({result:"success", msg:"logged in"});
 }
