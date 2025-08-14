@@ -11,7 +11,7 @@ user_router.get("/", user_controller.getusers);
 
 user_router.post("/register", user_controller.register);
 
-user_router.post("/", user_controller.login);
+user_router.post("/login", user_controller.login);
 
 
 module.exports = user_router;
