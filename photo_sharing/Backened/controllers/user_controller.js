@@ -35,14 +35,13 @@ exports.login = (req, res, next) =>{
     const {email, password} = req.body;
     const logindetail = {email, password};
 
-    const user = all_users.find(i => (i.email===email) && (i.password===password));
+    const user = all_users.find(i => (i.email===email) );
 
     if(user && user.password!==password){
-        return next(new Myerror("password is incorrect", 401));
+        return next(new Myerror("invalid password", 401));
     }
-    else {
-        
+    else if(!user){
+        return next(new Myerror("invalid user, register first", 401));
     }
-
     res.status(200).json({result:"success", msg:"logged in"});
 }
