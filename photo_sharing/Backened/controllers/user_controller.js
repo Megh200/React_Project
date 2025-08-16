@@ -24,19 +24,26 @@ exports.getusers = (req, res, next) =>{
 
 
 exports.register = (req, res, next) =>{
-    const {id, name, pic, nol} = req.body;
-    const user = {id, name, pic, nol};
-    all_users.push(user);
+    const {name, email, password} = req.body;
+    const user = all_users.find(i => i.email === email);
 
+    if(user){   // check if user is already there
+        return next(new Myerror("email is already registered", 422));
+    }
+
+    // new user
+    const newuser = {id: Math.trunc(Math.random()*10)+1, name, email, password};
+    all_users.push(newuser);
     res.json({result:"success", msg:"register is done"});
 }
 
+
 exports.login = (req, res, next) =>{
     const {email, password} = req.body;
-    const logindetail = {email, password};
 
     const user = all_users.find(i => i.email===email && i.password===password);
-    console.log(user);
+    // console.log(user);
+
     if(user && user.password!==password){
         return next(new Myerror("invalid password", 401));
     }
