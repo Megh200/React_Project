@@ -1,4 +1,4 @@
-const MyError = require("../model/error");
+const Myerror = require("../model/error");
 
 let user_locations = [
         {id:"loc1",
@@ -30,7 +30,7 @@ let user_locations = [
 exports.getlocbylocid = (req, res, next) =>{
      // url locid by params of useParams
     const locid = req.params.locid;
-    const location = user_locations.filter(loc => (loc.id===locid) );
+    const location = user_locations.find(loc => (loc.id===locid) );
     // console.log(location);
 
     if(!location){
