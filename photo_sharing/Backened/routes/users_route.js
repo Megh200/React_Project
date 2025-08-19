@@ -6,4 +6,6 @@ const user_router = express.Router();
 
 user_router.get("/:uid", user_controller.getuserbyuid);
 
+user_router.get("/", user_controller.getusers);
+
 module.exports = user_router;
