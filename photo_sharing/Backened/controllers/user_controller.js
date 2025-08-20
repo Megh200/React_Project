@@ -18,7 +18,7 @@ exports.getusers = (req, res, next) =>{
 //         return next(new Myerror("no such userid", 404));
 //     }
 
-//     res.status(200).json({result:"success", msg:user});
+    // res.status(200).json({result:"success", msg:user});
 // }
 
 
@@ -29,4 +29,8 @@ exports.register = (req, res, next) =>{
     all_users.push(user);
 
     res.json({result:"success", msg:"register is done"});
+}
+
+exports.login = (req, res, next) =>{
+    
 }
