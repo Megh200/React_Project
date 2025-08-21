@@ -40,16 +40,8 @@ exports.login = (req, res, next) =>{
     if(user && user.password!==password){
         return next(new Myerror("invalid password", 401));
     }
-    else if(!user){
+    if(!user){
         return next(new Myerror("invalid user, register first", 401));
     }
     res.status(200).json({result:"success", msg:"logged in"});
 }
-// if(user && user.password!==password){
-//         return next(new Myerror("invalid password", 401));
-//     }
-//     else if(!user){
-//         return next(new Myerror("invalid user, register first", 401));
-//     }
-//     res.status(200).json({result:"success", msg:"logged in"});
-// }
