@@ -35,8 +35,8 @@ exports.login = (req, res, next) =>{
     const {email, password} = req.body;
     const logindetail = {email, password};
 
-    const user = all_users.find(i => (i.email===email) );
-
+    const user = all_users.find(i => i.email===email && i.password===password);
+    console.log(user);
     if(user && user.password!==password){
         return next(new Myerror("invalid password", 401));
     }
@@ -45,3 +45,11 @@ exports.login = (req, res, next) =>{
     }
     res.status(200).json({result:"success", msg:"logged in"});
 }
+// if(user && user.password!==password){
+//         return next(new Myerror("invalid password", 401));
+//     }
+//     else if(!user){
+//         return next(new Myerror("invalid user, register first", 401));
+//     }
+//     res.status(200).json({result:"success", msg:"logged in"});
+// }
