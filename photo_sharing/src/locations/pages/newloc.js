@@ -4,6 +4,9 @@ import {LoginContext} from "../../common/components/context";
 import "./Newloc.css";
 
 const Newloc = () =>{
+    const login = useContext(LoginContext);
+    const [error, seterror] = useState(null);
+
     const [newlocation,setnewlocation] = useState(
         {title:'',
          desc:'',
@@ -11,9 +14,37 @@ const Newloc = () =>{
         }
     );
 
-    const submithandler = (event) =>{
+    const submithandler = async(event) =>{
         event.preventDefault();
         console.log("values",newlocation);
+        seterror(null);
+
+        try{
+            const response =await fetch("http://localhost:5000/api/locations",{
+                method:"POST",
+                body: formdata, 
+                headers:{
+                    "Content-type":"application/json",
+                },
+                body: JSON.stringify({
+                    title:newlocation.title,
+                    desc:newlocation.desc,
+                    address:newlocation.address,
+                    userid:login.userID,
+
+                }),
+             });
+             const responseData=await response.json();
+             console.log("new location page/: ", responseData.message);
+             if(!response.ok){
+                throw new Error(responseData.message);
+             }
+        }catch(err){
+            alert(err.message, ()=>{
+                setError(null);
+            });
+            setError(err.message);
+        }    
     };
 
     const changehandler = (event) =>{
