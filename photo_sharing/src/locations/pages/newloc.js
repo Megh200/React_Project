@@ -1,5 +1,6 @@
 import React, {useState, useContext} from "react";
 
+import {LoginContext} from "../../common/components/context";
 import "./Newloc.css";
 
 const Newloc = () =>{
