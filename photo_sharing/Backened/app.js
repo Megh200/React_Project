@@ -12,13 +12,13 @@ app.use(express.json());
 app.use("/api/loc", loc_route);         // but now gave the path for locations      a route middleware
 app.use("/api/users", user_route);
 
-app.use("*", (req, res, next) =>{
-    return next(new Myerror("can't find path",404));
+app.use((req, res, next) =>{
+     next(new Myerror("can't find path",404));
 });
 
 app.use((error, req, res, next) =>{                  // error middleware
     if(res.headersSent){
-         next(error);                  //default error
+        return next(error);                  //default error
     }
     res.status(error.errorcode || 500);
     res.json({result:"fail", msg:error.message }); // NOT msg:error.msg
