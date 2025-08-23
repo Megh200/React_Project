@@ -8,6 +8,8 @@ const LogIn = () =>{
    // again, to use LoginContext, useContext
     const islogin = useContext(LoginContext);
 
+    const [error, seterror] = useState(null);
+
     const[logindata,setlog] = useState(
         {
             email:"",
