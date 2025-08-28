@@ -38,11 +38,11 @@ exports.register = (req, res, next) =>{
     res.json({result:"success", msg:"register is done"});
 }
 exports.register = async(req, res, next) =>{
-    const {name, nol, email, password} = req.body;
+    const {name, email, password} = req.body;
     const newuser = new userschemaf(
             {
                 name,
-                nol,
+                nol : 0,
                 email,
                 password
             }
@@ -52,7 +52,11 @@ exports.register = async(req, res, next) =>{
     }catch(err){
         return next(new Myerror("db error"));
     };
-    if()
+
+    const dbemail = userschemaf.find({email:email});
+    if(dbemail.length ===0){
+        return next(new Myerror("email already existed"));
+    }
     
     res.status(200).json({result:"success", msg:"register is done"});
 }
