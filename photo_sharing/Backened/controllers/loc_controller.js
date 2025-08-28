@@ -42,7 +42,7 @@ exports.getlocbylocid = async(req, res, next) =>{
     // location = user_locations.find(loc => (loc.id===locid) );
     // console.log(location);
 
-    if(locinfo === null){
+    if(!locinfo){
         // error
         return next(new Myerror("no locations of this id", 404));
     }
@@ -59,7 +59,7 @@ exports.getlocbyuid = async(req, res, next) =>{
     catch(err){
         return next(new Myerror("db error"+err, 500));
     }
-    
+
     if(userinfo.length === 0){
         return next(new Myerror("uid not found",404));}
 
