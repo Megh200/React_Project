@@ -24,22 +24,14 @@ exports.getusers = (req, res, next) =>{
 
 
 
-// exports.register = (req, res, next) =>{
-//     const {name, email, password} = req.body;
-//     const user = all_users.find(i => i.email === email);
-
-//     if(user){   // check if user is already there
-//         return next(new Myerror("email is already registered", 422));
-//     }
-
-//     // new user
-//     const newuser = {id: Math.trunc(Math.random()*10)+1, name, email, password};
-//     all_users.push(newuser);
-//     res.json({result:"success", msg:"register is done"});
-// }
 exports.register = async(req, res, next) =>{
     const {name, email, password} = req.body;
+    // const user = all_users.find(i => i.email === email);
     
+    // if(user){   // check if user is already there
+    //     return next(new Myerror("email is already registered", 422));
+    // }
+
     const newuser = new userschemaf(
             {
                 name,
@@ -48,22 +40,22 @@ exports.register = async(req, res, next) =>{
                 password
             }
         );
-        let dbemail;
+
+    // new user
+    // const newuser = {id: Math.trunc(Math.random()*10)+1, name, email, password};
+    // all_users.push(newuser);
+
     try{
-        dbemail = await userschemaf.find({email:email});  
-        console.log(dbemail);
-
-        if(dbemail !== 0){
+        const dbemail = await userschemaf.find({email:email});  
+        
+        if(dbemail.length !== 0){
         return next(new Myerror("email already existed"));}
-
-        await newuser.save(); 
+        
+        await newuser.save();
     }catch(err){
         return next(new Myerror("db error"));
     };
-    
-
-    
-    
+        
     res.status(200).json({result:"success", msg:"register is done"});
 }
 
