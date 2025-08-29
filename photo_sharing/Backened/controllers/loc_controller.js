@@ -1,5 +1,5 @@
 const Myerror = require("../model/error");
-const locschema = require("../model/location");
+const locschemaf = require("../model/location");
 
 // dummy data
 // let user_locations = [
@@ -52,7 +52,14 @@ exports.getlocbyuid = (req, res, next) =>{
 
 exports.createnewloc = (req, res, next) =>{
     const {title, desc, address, userid} = req.body;
-    const newloc = {title, desc, address, userid};
+    const newloc = new locschemaf({
+        title,
+        desc,
+        pic: "",
+        userid
+    });
+    newloc.save()   // save the docu. 1 at a time
+    
 
     user_locations.push(newloc);
     res.status(201).json({result:"success", msg:newloc});
