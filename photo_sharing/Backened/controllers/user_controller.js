@@ -38,10 +38,9 @@ exports.register = (req, res, next) =>{
     res.json({result:"success", msg:"register is done"});
 }
 exports.register = async(req, res, next) =>{
-    const {name, email, password} = req.body;
+    const {name, nol, email, password} = req.body;
     const newuser = new userschemaf(
             {
-                userid,
                 name,
                 nol,
                 email,
@@ -49,10 +48,11 @@ exports.register = async(req, res, next) =>{
             }
         );
     try{
-        await newuser.save;
+        await newuser.save();
     }catch(err){
         return next(new Myerror("db error"));
     };
+    if()
     
     res.status(200).json({result:"success", msg:"register is done"});
 }
