@@ -52,3 +52,8 @@ exports.login = (req, res, next) =>{
     }
     res.status(200).json({result:"success", msg:"logged in"});
 }
+
+
+
+
+// mongodb+srv://admin:<admin mongo>@cluster0.otpxmmh.mongodb.net/photo_project?retryWrites=true&w=majority&appName=Cluster0
