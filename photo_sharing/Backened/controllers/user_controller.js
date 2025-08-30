@@ -56,4 +56,3 @@ exports.login = (req, res, next) =>{
 
 
 
-// mongodb+srv://admin:<admin mongo>@cluster0.otpxmmh.mongodb.net/photo_project?retryWrites=true&w=majority&appName=Cluster0
