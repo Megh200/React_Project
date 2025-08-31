@@ -44,14 +44,23 @@ exports.getlocbylocid = (req, res, next) =>{
     res.status(200).json({result:"success", msg:location });
 };
 
-exports.getlocbyuid = (req, res, next) =>{
+exports.getlocbyuid = async(req, res, next) =>{
     const uid = req.params.uid;
-    const users = user_locations.filter(user => user.userid===uid);
-    res.status(200).json({result:"success", msg:users });
+    const u_id = await locschemaf.findById(uid);
+
+    if(!u_id){
+        return next(new Myerror("uid not found",404));
+    }
+
+    res.status(200).json({result:"success", msg:locschemaf.title});
+
+    // const users = user_locations.filter(user => user.userid===uid);
+    // res.status(200).json({result:"success", msg:users });
 };
 
 exports.createnewloc = async(req, res, next) =>{
     const {title, desc, address, userid} = req.body;
+    
     const newloc = new locschemaf({
         title,
         desc,
@@ -73,9 +82,22 @@ exports.createnewloc = async(req, res, next) =>{
     res.status(201).json({result:"success", msg:newloc});
 };
 
-exports.deleteloc = (req, res, next) =>{
+exports.deleteloc = async(req, res, next) =>{
     const locid = req.params.locid;
-    user_locations = user_locations.filter(loc => loc.id!==locid );
+
+    try{
+        const loc = await locschemaf.findByIdAndDelete(locid);
+
+        if(!loc){
+            return next(new Myerror("location not found", 404));
+        }
+
+    }catch(err){
+        console.log(err);
+        return next(new Myerror("db error"));
+    }
+
+    // user_locations = user_locations.filter(loc => loc.id!==locid );
 
     res.status(200).json({result:"success", msg:"loc is deleted"});
 }
