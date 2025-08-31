@@ -50,18 +50,26 @@ exports.getlocbyuid = (req, res, next) =>{
     res.status(200).json({result:"success", msg:users });
 };
 
-exports.createnewloc = (req, res, next) =>{
+exports.createnewloc = async(req, res, next) =>{
     const {title, desc, address, userid} = req.body;
     const newloc = new locschemaf({
         title,
         desc,
-        pic: "",
+        pic: "https://picsum.phtos/200",
+        address,
         userid
     });
-    newloc.save()   // save the docu. 1 at a time
-    
+    try{
+        // save the docu. 1 at a time
+        await newloc.save();}
+    catch(err){
+        console.log(err);
+        return next(new Myerror("db error"));
 
-    user_locations.push(newloc);
+    };
+
+    // user_locations.push(newloc);
+    
     res.status(201).json({result:"success", msg:newloc});
 };
 
