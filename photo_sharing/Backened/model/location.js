@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 
-const schema = mongoose.Schema;
+const schema = mongoose.Schema;     // called a class/function from express
 
-const locschema = new schema(
+const locschema = new schema(              // created a new object
     {
         title : {type:String, required:true},
         desc : {type:String, required:true},
@@ -12,4 +12,4 @@ const locschema = new schema(
     }
 )
 
-module.exports = mongoose.model("location", locschema);
+module.exports = mongoose.model("DBlocation", locschema);
