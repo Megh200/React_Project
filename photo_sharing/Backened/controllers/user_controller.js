@@ -1,4 +1,5 @@
 const Myerror = require("../model/error");
+const userschemaf = require("../model/user");
 
 const all_users = [
             {id:"1", name:"tiya", pic:"https://i.pinimg.com/736x/6a/8a/75/6a8a75997108f805112355c48ca4af27.jpg", nol:3, email:"tiya.com", password:"123t"},
@@ -36,13 +37,24 @@ exports.register = (req, res, next) =>{
     all_users.push(newuser);
     res.json({result:"success", msg:"register is done"});
 }
-exports.register = (req, res, next) =>{
+exports.register = async(req, res, next) =>{
     const {name, email, password} = req.body;
+    const newuser = new userschemaf(
+            {
+                userid,
+                name,
+                nol,
+                email,
+                password
+            }
+        );
+    try{
+        await newuser.save;
+    }catch(err){
+        return next(new Myerror("db error"));
+    };
     
-    // new user
-    const newuser = {id: Math.trunc(Math.random()*10)+1, name, email, password};
-    all_users.push(newuser);
-    res.json({result:"success", msg:"register is done"});
+    res.status(200).json({result:"success", msg:"register is done"});
 }
 
 
