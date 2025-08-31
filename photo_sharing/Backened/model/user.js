@@ -6,9 +6,9 @@ const userschema = new schema(
     {
         userid:{type:String, required:true},
         name:{type:String, required:true},
-        nol:{type:String},
-        userid:{type:String, required:true},
-        userid:{type:String, required:true}
+        nol:{type:Number},
+        email:{type:String, required:true},
+        password:{type:String, required:true}
     }
 );
 
