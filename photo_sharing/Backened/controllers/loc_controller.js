@@ -46,13 +46,13 @@ exports.getlocbylocid = (req, res, next) =>{
 
 exports.getlocbyuid = async(req, res, next) =>{
     const uid = req.params.uid;
-    const u_id = await locschemaf.findById(uid);
+    const userinfo = await locschemaf.findById(uid);
 
-    if(!u_id){
+    if(userinfo === null){
         return next(new Myerror("uid not found",404));
     }
 
-    res.status(200).json({result:"success", msg:locschemaf.title});
+    res.status(200).json({result:"success", msg:userinfo});
 
     // const users = user_locations.filter(user => user.userid===uid);
     // res.status(200).json({result:"success", msg:users });
