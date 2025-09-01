@@ -36,6 +36,14 @@ exports.register = (req, res, next) =>{
     all_users.push(newuser);
     res.json({result:"success", msg:"register is done"});
 }
+exports.register = (req, res, next) =>{
+    const {name, email, password} = req.body;
+    
+    // new user
+    const newuser = {id: Math.trunc(Math.random()*10)+1, name, email, password};
+    all_users.push(newuser);
+    res.json({result:"success", msg:"register is done"});
+}
 
 
 exports.login = (req, res, next) =>{
