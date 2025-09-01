@@ -30,30 +30,38 @@ const locschemaf = require("../model/location");
 
 // const getlocbylocid = (req, res, next) =>{.......}            in beginning, it was like this
 
-exports.getlocbylocid = (req, res, next) =>{
+exports.getlocbylocid = async(req, res, next) =>{
      // url locid by params of useParams
     const locid = req.params.locid;
-    const location = user_locations.find(loc => (loc.id===locid) );
+    let locinfo;
+    try{
+        locinfo = await locschemaf.findById(locid);}
+    catch(err){
+        return next(new Myerror("db error", 500));
+    }
+    // location = user_locations.find(loc => (loc.id===locid) );
     // console.log(location);
 
-    if(!location){
+    if(locinfo === null){
         // error
         return next(new Myerror("no locations of this id", 404));
     }
     
-    res.status(200).json({result:"success", msg:location });
+    res.status(200).json({result:"success", msg:locinfo });
 };
 
 exports.getlocbyuid = async(req, res, next) =>{
     const uid = req.params.uid;
-
+    let userinfo;
     try{
-    const userinfo = await locschemaf.find({userid:uid});
-     if(userinfo === null){ return next(new Myerror("uid not found",404));}
+    userinfo = await locschemaf.find({userid:uid});
     }
     catch(err){
         return next(new Myerror("db error"+err, 500));
     }
+    
+    if(userinfo.length === 0){
+        return next(new Myerror("uid not found",404));}
 
     res.status(200).json({result:"success", msg:userinfo});
 
