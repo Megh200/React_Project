@@ -46,10 +46,13 @@ exports.getlocbylocid = (req, res, next) =>{
 
 exports.getlocbyuid = async(req, res, next) =>{
     const uid = req.params.uid;
-    const userinfo = await locschemaf.findById(uid);
 
-    if(userinfo === null){
-        return next(new Myerror("uid not found",404));
+    try{
+    const userinfo = await locschemaf.find({userid:uid});
+     if(userinfo === null){ return next(new Myerror("uid not found",404));}
+    }
+    catch(err){
+        return next(new Myerror("db error"+err, 500));
     }
 
     res.status(200).json({result:"success", msg:userinfo});
