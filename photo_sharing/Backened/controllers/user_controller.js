@@ -64,7 +64,8 @@ exports.register = async(req, res, next) =>{
         return next(new Myerror("db error"));
     };
         
-    res.status(200).json({result:"success", msg:"register is done"});
+    // res.status(200).json({result:"success", msg:"register is done"});
+    res.status(200).json({result:"success", msg:newuser});        // after connected to frontend
 }
 
 
