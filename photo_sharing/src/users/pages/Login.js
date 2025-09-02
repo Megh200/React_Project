@@ -46,7 +46,7 @@ const LogIn = () =>{
          if (!res.ok){
             throw new Error(resData.msg);
          }
-         console.log("id here", islogin.login(resData.msg.id));
+         console.log("id here", islogin.login(resData.msg._id));
          islogin.login(resData.msg._id);
         }
         catch(err){
