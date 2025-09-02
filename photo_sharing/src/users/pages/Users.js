@@ -26,7 +26,7 @@ const Users = () =>{
                     }
                 };
                 sendReq(); }, []);
-                console.log(savedUsers);
+                console.log("savedusers", savedUsers);
 
 return (
     <div>
