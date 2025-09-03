@@ -1,7 +1,7 @@
 const express = require("express");
 const Myerror = require("./model/error");
 const mongoose = require("mongoose");              // for database
-const cors = require('cors');
+const cors = require('cors');      // required if u r using frontend & backened on diff. ports
 
 
 const loc_route = require("./routes/locations_route");
@@ -9,8 +9,9 @@ const user_route = require("./routes/users_route");
 
 const app = express();
 
-app.use(cors());
 app.use(express.json());
+
+app.use(cors());      // cors middleware before all requests
 
 // app.use(loc_route);     in the beginning,we did this
 app.use("/api/loc", loc_route);         // but now gave the path for locations      a route middleware
