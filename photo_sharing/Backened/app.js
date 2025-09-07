@@ -1,7 +1,7 @@
 const express = require("express");
 const Myerror = require("./model/error");
 const mongoose = require("mongoose");              // for database
-// const cors = require('cors');
+const cors = require('cors');
 
 
 const loc_route = require("./routes/locations_route");
@@ -9,7 +9,7 @@ const user_route = require("./routes/users_route");
 
 const app = express();
 
-// app.use(cors());
+app.use(cors());
 app.use(express.json());
 
 // app.use(loc_route);     in the beginning,we did this
