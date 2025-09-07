@@ -28,7 +28,7 @@ const LogIn = () =>{
 
         seterror(null);
         try{
-            const res =await fetch("http://localhost:5000/api/users/Login",{
+            const res =await fetch("http://localhost:5000/api/users/login",{
                 method: "POST",
                 headers:{
                     "Content-type":"application/json",
@@ -36,7 +36,7 @@ const LogIn = () =>{
                 },
                 body: JSON.stringify({
                     email: logindata.email,
-                    password: logindata.password,
+                    password: logindata.pass,
 
                 }),
             });
@@ -44,9 +44,9 @@ const LogIn = () =>{
         const resData= await res.json();
         console.log("login page :", resData);
          if (!res.ok){
-            throw new Error(resData.message);
+            throw new Error(resData.msg);
          }
-         islogin.login(resData.message._id);
+         islogin.login(resData.msg._id);
         }
         catch(err){
             alert(err.message, ()=>{
