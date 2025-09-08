@@ -10,8 +10,8 @@ const Userslist = (props) =>{
             <ul className="userlist" >
                 
                 {props.arr.map(i => {
-                    return (<Useritem  key={i.id}
-                        id={i.id}
+                    return (<Useritem  key={i._id}
+                        id={i._id}
                         name={i.name}
                         pic={i.pic}
                         nol={i.nol}
