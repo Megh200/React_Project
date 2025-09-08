@@ -8,7 +8,7 @@ const userschema = new schema(
         email:{type:String, required:true},
         pic:{type:String, required:true, default:"image"},
         password:{type:String, required:true, minlength:6},
-        locs_id:[{type:String}]
+        locs_id:[ {type:mongoose.Types.ObjectId, required:true, ref:"location"} ]
     }
 );
 
