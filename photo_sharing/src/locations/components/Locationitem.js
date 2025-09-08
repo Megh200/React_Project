@@ -7,7 +7,7 @@ const Locationitem = (props) =>{
         <li className="locationitem">
             <div className="locationitem-content" >
                 <div className="pic" >
-                    <img src={`http://localhost/5000/${props.pic}`} alt={props.title} />
+                    <img src={`http://localhost:5000/${props.pic}`} alt={props.title} />
                 </div>
                 <div className="info">
                 <h2>{props.title}</h2>
