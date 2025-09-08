@@ -20,7 +20,7 @@ const Newloc = () =>{
         seterror(null);
 
         try{
-            const res =await fetch("http://localhost:5000/api/locations",{
+            const res =await fetch("http://localhost:5000/api/loc",{
                 method:"POST",
                 // body: formdata, 
                 headers:{
