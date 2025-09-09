@@ -14,7 +14,7 @@ const Userslist = (props) =>{
                         id={i._id}
                         name={i.name}
                         pic={i.pic}
-                        nol={i.nol}
+                        locationcount={i.locs_id.length}
                         // all are attributes, we passed them to Useritem
                         />)}
                 )}
