@@ -26,13 +26,15 @@ const Users = () =>{
                     }
                 };
                 sendReq(); }, []);
+                console.log(savedUsers);
 
 return (
     <div>
         {/* <p>users page</p> */}
 
-        <Userslist arr={savedUsers} />
-
+        <React.Fragment>
+         {savedUsers && <Userslist arr={savedUsers} />}
+         </React.Fragment>
 
 
     </div>
