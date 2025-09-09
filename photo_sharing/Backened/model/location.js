@@ -8,7 +8,8 @@ const locschema = new schema(              // created a new object
         desc : {type:String, required:true},
         pic :{type:String, required:true},
         address : {type:String, required:true},
-        userid : {type:String }
+        userid : {type: mongoose.Types.ObjectId, required: true, Ref:"User" }
+
     }
 )
 
