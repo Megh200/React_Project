@@ -26,7 +26,7 @@ const LogIn = () =>{
         // islogin.login();    // here we are calling a fun.,that's why ()
                             // now see in Navlink.js 'button tag of logout'
 
-        setError(null);
+        seterror(null);
         try{
             const res =await fetch("http://localhost:5000/api/users/login",{
                 method: "POST",
