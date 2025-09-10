@@ -15,7 +15,7 @@ const Users = () =>{
         useEffect( () => {
             const sendReq = async() =>{
                 try{
-                    const res = await fetch("http://localhost:3000/api/users");
+                    const res = await fetch("http://localhost:5000/api/users");
                     const resData = await res.json();
                     if(!res.ok){
                         throw new Error(resData.msg);}
