@@ -15,11 +15,11 @@ const Users = () =>{
         useEffect( () => {
             const sendReq = async() =>{
                 try{
-                    const res = await fetch("http://locahost:5000/api/users");
+                    const res = await fetch("http://localhost:3000/api/users");
                     const resData = await res.json();
                     if(!res.ok){
-                        throw new Error(resData.message);}
-                        setsavedUsers(resData.message);
+                        throw new Error(resData.msg);}
+                        setsavedUsers(resData.msg);
                     }catch(err){
                         alert( err.message, () =>{ seterror(null); } )
                         seterror(err.message);
