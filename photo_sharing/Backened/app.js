@@ -1,6 +1,7 @@
 const express = require("express");
 const Myerror = require("./model/error");
 const mongoose = require("mongoose");              // for database
+const cors = require('cors');
 
 
 const loc_route = require("./routes/locations_route");
@@ -8,6 +9,7 @@ const user_route = require("./routes/users_route");
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 // app.use(loc_route);     in the beginning,we did this
@@ -18,7 +20,7 @@ app.use((req, res, next) =>{                 // without path, yeah, cuz this is 
      next(new Myerror("can't find path",404));
 });
 
-app.use((error, req, res, next) =>{                  // error middleware
+app.use((error, req, res, next) =>{                 // error middleware
     if(res.headersSent){
         return next(error);                  //default error
     }
@@ -39,7 +41,7 @@ mongoose.connect(
     "mongodb+srv://admin:admin mongo@cluster0.otpxmmh.mongodb.net/photo_project?retryWrites=true&w=majority&appName=Cluster0"
 ).then( () =>{
     // as we want the server to run when only db connected, not when db not connected.
-    app.listen(3000,() =>{
+    app.listen(5000,() =>{
     console.log("server is created"); 
 })
 }
