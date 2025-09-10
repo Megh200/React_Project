@@ -39,7 +39,7 @@ mongoose.connect(
     "mongodb+srv://admin:admin mongo@cluster0.otpxmmh.mongodb.net/photo_project?retryWrites=true&w=majority&appName=Cluster0"
 ).then( () =>{
     // as we want the server to run when only db connected, not when db not connected.
-    app.listen(5000,() =>{
+    app.listen(3000,() =>{
     console.log("server is created"); 
 })
 }
