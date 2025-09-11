@@ -30,7 +30,7 @@ const Newloc = () =>{
                     title:newlocation.title,
                     desc:newlocation.desc,
                     address:newlocation.address,
-                    // userid:login.userID,
+                    userid:login.userID,
 
                 }),
              });
