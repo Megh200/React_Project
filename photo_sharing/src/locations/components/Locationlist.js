@@ -14,12 +14,13 @@ const Locationlist = (props) =>{
     return( 
         <ul className="locationlist" >
             {props.arr.map(i => {
-                return <Locationitem key={i.id}
+                return <Locationitem key={i._id}
+                       id={i._id}
                        title={i.title}
                        pic={i.pic}
                        desc={i.desc}
                        address={i.address}
-                       userid={i.userid}
+                    //    userid={i._userid}
                        />
             })}
         </ul>
