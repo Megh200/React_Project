@@ -73,7 +73,7 @@ const App = () => {
 
     return(
       
-    <LoginContext.Provider value={ {isloggedin:isLoggedin, login:Login, logout:Logout } } >
+    <LoginContext.Provider value={ {isloggedin:isLoggedin, userId:UserID, login:Login, logout:Logout } } >
       {/* route,redirect,switch etc.. are all router's components  */}
 
       <Router>
