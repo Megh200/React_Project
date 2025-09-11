@@ -20,7 +20,7 @@ const Newloc = () =>{
         seterror(null);
 
         try{
-            const response =await fetch("http://localhost:5000/api/locations",{
+            const res =await fetch("http://localhost:5000/api/locations",{
                 method:"POST",
                 body: formdata, 
                 headers:{
@@ -30,20 +30,20 @@ const Newloc = () =>{
                     title:newlocation.title,
                     desc:newlocation.desc,
                     address:newlocation.address,
-                    userid:login.userID,
+                    // userid:login.userID,
 
                 }),
              });
-             const responseData=await response.json();
-             console.log("new location page/: ", responseData.message);
-             if(!response.ok){
-                throw new Error(responseData.message);
+             const resData = await res.json();
+             console.log("new location page/: ", resData.message);
+             if(!res.ok){
+                throw new Error(resData.message);
              }
         }catch(err){
             alert(err.message, ()=>{
-                setError(null);
+                seterror(null);
             });
-            setError(err.message);
+            seterror(err.message);
         }    
     };
 
