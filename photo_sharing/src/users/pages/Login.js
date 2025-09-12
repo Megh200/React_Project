@@ -28,7 +28,7 @@ const LogIn = () =>{
 
         seterror(null);
         try{
-            const res =await fetch("http://localhost:5000/api/users/login",{
+            const res =await fetch("http://localhost:5000/api/users/Login",{
                 method: "POST",
                 headers:{
                     "Content-type":"application/json",
