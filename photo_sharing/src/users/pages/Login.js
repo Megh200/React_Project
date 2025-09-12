@@ -17,15 +17,44 @@ const LogIn = () =>{
         }
     );
 
-    const submithandler = (event) =>{
+    const submithandler = async(event) =>{
         event.preventDefault();
         
         console.log("logindata", logindata);
 
     // calling login() from context.js
-        islogin.login();    // here we are calling a fun.,that's why ()
+        // islogin.login();    // here we are calling a fun.,that's why ()
                             // now see in Navlink.js 'button tag of logout'
 
+        setError(null);
+        try{
+            const res =await fetch("http://localhost:5000/api/users/login",{
+                method: "POST",
+                headers:{
+                    "Content-type":"application/json",
+
+                },
+                body: JSON.stringify({
+                    email: logindata.email,
+                    password: logindata.password,
+
+                }),
+            });
+
+        const resData= await res.json();
+        console.log("login page :", resData);
+         if (!res.ok){
+            throw new Error(resData.message);
+         }
+         islogin.login(resData.message._id);
+        }
+        catch(err){
+            alert(err.message, ()=>{
+                seterror(null);
+            });
+            seterror(err.message);
+        }
+    
     };
 
     const changehandler = (event) =>{
