@@ -22,7 +22,7 @@ const Newloc = () =>{
         try{
             const res =await fetch("http://localhost:5000/api/locations",{
                 method:"POST",
-                body: formdata, 
+                // body: formdata, 
                 headers:{
                     "Content-type":"application/json",
                 },
