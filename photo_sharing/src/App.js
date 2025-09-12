@@ -17,13 +17,14 @@ const App = () => {
 
   // Hook "useCallback()" takes 2 arguments, that's why we
   // passed a method then an empty array
-  const Login = useCallback( () =>{
-    // setUserID(uid);
+  const Login = useCallback( (uid) =>{
+    setUserID(uid);
     setisloggedin(true);
   }, [] );
 
   const Logout = useCallback( () =>{
     setisloggedin(false);
+    setUserID(null);
   }, [] );
   // now passing these var. & methods
   // to LoginContext.Provider's "value" as obj bcz in context.js
