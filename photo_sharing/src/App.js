@@ -17,8 +17,9 @@ const App = () => {
 
   // Hook "useCallback()" takes 2 arguments, that's why we
   // passed a method then an empty array
-  const Login = useCallback( (uid) =>{
-    setUserID(uid);
+  const Login = useCallback( (userid) =>{
+    setUserID(userid);
+    console.log("uid", userid);
     setisloggedin(true);
   }, [] );
 
