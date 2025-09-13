@@ -83,7 +83,7 @@ exports.createnewloc = async(req, res, next) =>{
         // save the docu. 1 at a time
         await newloc.save();}
     catch(err){
-        console.log(err);
+        console.log("here is the error", err);
         return next(new Myerror("db error"));
 
     };
