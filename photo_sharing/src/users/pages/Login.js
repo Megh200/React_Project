@@ -20,7 +20,7 @@ const LogIn = () =>{
     const submithandler = async(event) =>{
         event.preventDefault();
         
-        console.log("logindata", logindata);
+        console.log("logindata", logindata, islogin.userId);
 
     // calling login() from context.js
         // islogin.login();    // here we are calling a fun.,that's why ()
