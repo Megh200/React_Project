@@ -35,9 +35,9 @@ const Newloc = () =>{
                 }),
              });
              const resData = await res.json();
-             console.log("new location page/: ", resData.message);
+             console.log("new location page: ", resData.msg);
              if(!res.ok){
-                throw new Error(resData.message);
+                throw new Error(resData.msg);
              }
         }catch(err){
             alert(err.message, ()=>{
