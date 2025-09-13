@@ -20,7 +20,7 @@ const LogIn = () =>{
     const submithandler = async(event) =>{
         event.preventDefault();
         
-        console.log("logindata", logindata, islogin.userId);
+        console.log("logindata", logindata);
 
     // calling login() from context.js
         // islogin.login();    // here we are calling a fun.,that's why ()
@@ -46,6 +46,7 @@ const LogIn = () =>{
          if (!res.ok){
             throw new Error(resData.msg);
          }
+         console.log("id here", islogin.login(resData.msg.id));
          islogin.login(resData.msg._id);
         }
         catch(err){
