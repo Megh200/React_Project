@@ -23,7 +23,7 @@ const Navlink = () =>{
             
             { islogin.isloggedin && 
             (<li>
-                <NavLink to="/1/locations" >My locations</NavLink>
+                <NavLink to={`/${islogin.userId}/locations`} >My locations</NavLink>
             </li>) }
             
             { islogin.isloggedin && 
