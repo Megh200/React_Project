@@ -46,8 +46,7 @@ const LogIn = () =>{
          if (!res.ok){
             throw new Error(resData.msg);
          }
-         console.log("id here", islogin.login(resData.msg._id));
-         islogin.login(resData.msg._id);
+         islogin.login(resData.msg._id);    // passed the db _id to app.js uid login
         }
         catch(err){
             alert(err.message, ()=>{
